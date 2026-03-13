@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Build Project Using Maven
 
 Maven is java based build tool to generate executable 
@@ -35,3 +36,6 @@ docker ps -a
 
 ## License
 [Mithun Technologies](http://mithuntechnologies.co.in)
+=======
+# mongo-application
+>>>>>>> 8ef82e2cb1ff7247d7cdb1584a767f4fb2d808e6
