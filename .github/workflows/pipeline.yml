@@ -3,7 +3,7 @@ name: SpringBoot CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
 
