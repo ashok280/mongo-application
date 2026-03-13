@@ -1,4 +1,4 @@
-FROM openjdk:8-alpine
+FROM openjdk:17-jdk-slim
 
 RUN apk update && apk add /bin/sh
 
