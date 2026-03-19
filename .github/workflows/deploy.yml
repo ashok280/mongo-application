@@ -27,7 +27,7 @@ jobs:
         cd /home/ubuntu
 
         # OPTIONAL: pull latest repo if already cloned
-        # git pull
+        git pull
 
         # Apply Kubernetes configs
         kubectl apply -f deployment.yaml
