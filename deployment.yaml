@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-application
+  template:
+    metadata:
+      labels:
+        app: mongo-application
+    spec:
+      containers:
+      - name: my-container
+        image: ashokdocker248/mongo-application:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+

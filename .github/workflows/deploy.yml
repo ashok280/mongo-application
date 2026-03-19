@@ -1,0 +1,39 @@
+name: Deploy to Kubernetes Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup SSH Key
+      run: |
+        echo "${{ secrets.SSH_KEY }}" > key.pem
+        chmod 600 key.pem
+
+    - name: Deploy to Server via SSH
+      run: |
+        ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+
+        # Go to working directory
+        cd /home/ubuntu
+
+        # OPTIONAL: pull latest repo if already cloned
+        # git pull
+
+        # Apply Kubernetes configs
+        kubectl apply -f deployment.yml
+        #  kubectl apply -f service.yaml
+
+        # Restart deployment to pull latest image
+        #  kubectl rollout restart deployment my-app
+      
+        EOF
